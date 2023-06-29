@@ -22,7 +22,19 @@ class Problem1 {
         int pobiNum = getMaxNum(pobi);
         int crongNum = getMaxNum(crong);
 
-        return 0;
+        return findResult(pobiNum, crongNum);
+    }
+
+    private static int findResult(int pobiNum, int crongNum) {
+        if (pobiNum > crongNum) {
+            return RESULT_POBI_WIN;
+        }
+
+        if (pobiNum < crongNum) {
+            return RESULT_CRONG_WIN;
+        }
+
+        return RESULT_DRAW;
     }
 
     private static boolean isNotValid(List<Integer> pobi, List<Integer> crong) {
