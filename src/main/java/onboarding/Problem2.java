@@ -4,8 +4,13 @@ import java.util.stream.IntStream;
 
 public class Problem2 {
     public static String solution(String cryptogram) {
-        String answer = "answer";
-        return answer;
+        while (true) {
+            String removedDuplicate = removeDuplicate(cryptogram);
+            if (removedDuplicate.equals(cryptogram)) {
+                return cryptogram;
+            }
+            cryptogram = removedDuplicate;
+        }
     }
 
     private static String removeDuplicate(String cryptogram) {
