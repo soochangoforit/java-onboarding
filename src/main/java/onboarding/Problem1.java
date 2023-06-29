@@ -1,6 +1,7 @@
 package onboarding;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 class Problem1 {
     private static final int RESULT_ERROR = -1;
@@ -17,6 +18,9 @@ class Problem1 {
         if (isNotValid(pobi, crong)){
             return RESULT_ERROR;
         }
+
+        int pobiNum = getMaxNum(pobi);
+        int crongNum = getMaxNum(crong);
 
         return 0;
     }
@@ -43,6 +47,40 @@ class Problem1 {
         }
 
         return false;
+    }
+
+    private static int getMaxNum(List<Integer> pages) {
+        int leftSumResult = getSum(pages.get(LEFT_PAGE_INDEX));
+        int leftMultiplicationResult = getMultiplication(pages.get(LEFT_PAGE_INDEX));
+        int rightSumResult = getSum(pages.get(RIGHT_PAGE_INDEX));
+        int rightMultiplicationResult = getMultiplication(pages.get(RIGHT_PAGE_INDEX));
+
+        int leftLargerNumber = Math.max(leftSumResult, leftMultiplicationResult);
+        int rightLargerNumber = Math.max(rightSumResult, rightMultiplicationResult);
+
+        return Math.max(leftLargerNumber, rightLargerNumber);
+    }
+
+    private static int getSum(int number) {
+        int result = 0;
+
+        while (number != 0) {
+            result += number % 10;
+            number /= 10;
+        }
+
+        return result;
+    }
+
+    private static int getMultiplication(int number) {
+        int result = 1;
+
+        while (number != 0) {
+            result *= number % 10;
+            number /= 10;
+        }
+
+        return result;
     }
 
     private static boolean isNotTwoPages(List<Integer> pages) {
