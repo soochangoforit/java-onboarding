@@ -1,15 +1,23 @@
 package onboarding;
 
+import java.util.stream.IntStream;
+
 public class Problem3 {
+    private static final int START_NUMBER = 1;
+
+    private static final int CLAP_THREE = 3;
+    private static final int CLAP_SIX = 6;
+    private static final int CLAP_NINE = 9;
+
+
     public static int solution(int number) {
-        int answer = 0;
-        for(int num = 1; num <= number; num++) {
-            answer += getCountOfThreeOrSixOrNine(num);
-        }
-        return answer;
+        final int END_NUMBER = number + 1;
+        return IntStream.range(START_NUMBER, END_NUMBER)
+                .map(Problem3::countClap)
+                .sum();
     }
 
-    private static int getCountOfThreeOrSixOrNine(int number) {
+    private static int countClap(int number) {
         int count = 0;
         while(number != 0) {
             int digit = findFirstDigit(number);
@@ -28,7 +36,7 @@ public class Problem3 {
     }
 
     private static int countValidCondition(int count, int digit) {
-        if (digit == 3 || digit == 6 || digit == 9) {
+        if (digit == CLAP_THREE || digit == CLAP_SIX || digit == CLAP_NINE) {
             count++;
         }
         return count;
