@@ -2,8 +2,11 @@ package onboarding;
 
 public class Problem4 {
     public static String solution(String word) {
-        String answer = "";
-        return answer;
+        StringBuilder answer = new StringBuilder();
+        for (char originChar : word.toCharArray()) {
+            answer.append(getGreenFrogChar(originChar));
+        }
+        return answer.toString();
     }
 
     private static char getGreenFrogChar(char originChar) {
