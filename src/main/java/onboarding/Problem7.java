@@ -11,8 +11,16 @@ public class Problem7 {
 
         Map<String, List<String>> friendsMap = converToFriendMap(friends);
         Map<String, Integer> scoreMap = calculateFriendsScore(user, friendsMap);
+        plusOnePointToVisitors(visitors, scoreMap);
 
         return answer;
+    }
+
+    private static void plusOnePointToVisitors(List<String> visitors, Map<String, Integer> scoreMap) {
+        for (String visitor : visitors) {
+            Integer score = scoreMap.getOrDefault(visitor, 0);
+            scoreMap.put(visitor, score + 1);
+        }
     }
 
     private static Map<String, Integer> calculateFriendsScore(String user, Map<String, List<String>> friendsMap) {
