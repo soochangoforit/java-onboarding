@@ -5,4 +5,11 @@ public class Problem4 {
         String answer = "";
         return answer;
     }
+
+    private static char getGreenFrogChar(char originChar) {
+        if(Character.isAlphabetic(originChar)){
+            return originChar;
+        }
+        return originChar;
+    }
 }
