@@ -33,5 +33,5 @@
 - [x]  데이터 유효성에서 검증된 닉네임에서 연속된 2글자 단어씩 사전 등록
     - [x]  key : 단어
     - [x]  value : 이메일
-- [ ]  사전을 순회하면서 value가 2 이상인 경우 최종 Set<String> answer에 저장
-- [ ]  answer를 오름 차순 정렬 후 return
+- [x]  사전을 순회하면서 value가 2 이상인 경우 최종 Set<String> answer에 저장
+- [x]  answer를 오름 차순 정렬 후 return

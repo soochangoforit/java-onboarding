@@ -26,7 +26,12 @@ public class Problem6 {
                 .forEach(form -> addWordsFromNickName(twoLetters, extractEmail(form), extractNickName(form)));
 
 
-        return null;
+        return twoLetters.values().stream()
+                .filter(emails -> emails.size() >= 2)
+                .flatMap(Collection::stream)
+                .distinct()
+                .sorted()
+                .collect(toList());
     }
 
     private static boolean hasWordDuplicated(List<String> emails) {
