@@ -21,3 +21,17 @@
 | forms | result |
 | --- | --- |
 | [ ["jm@email.com", "제이엠"], ["jason@email.com", "제이슨"], ["woniee@email.com", "워니"], ["mj@email.com", "엠제이"], ["nowm@email.com", "이제엠"] ] | ["jason@email.com", "jm@email.com", "mj@email.com"] |
+
+
+### 기능 구현 목록
+- [ ]  닉네임 유효성 검사
+    - [ ]  모두 한글로 이루어졌는지
+    - [ ]  전체 길이 1자 이상 20자 미만인지
+- [ ]  이메일 유효성 검사
+    - [ ]  전체 길이가 11자 ~ 20자를 넘어가진 않는지
+    - [ ]  @email.com 으로 끝나는지
+- [ ]  데이터 유효성에서 검증된 닉네임에서 연속된 2글자 단어씩 사전 등록
+    - [ ]  key : 단어
+    - [ ]  value : 이메일
+- [ ]  사전을 순회하면서 value가 2 이상인 경우 최종 Set<String> answer에 저장
+- [ ]  answer를 오름 차순 정렬 후 return
